@@ -23,7 +23,7 @@ async function createUser(){
 }
 
 //API for getting all the users
-async function getAllUsers(){
+async function getAllUsers(req,res){
     try{
         const getAllUsers = await userLogin.find();
         res.json(getAllUsers);
@@ -103,6 +103,7 @@ async function userLoginJsonWebToken(req, res, next) {
           message: "Logged in Successfully",
           email: email,
           name: user.firstName,
+          rollNo: user.rollNo,
           userId: user.id,
           token: token,
         });
